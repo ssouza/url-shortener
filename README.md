@@ -2,6 +2,10 @@
 
 Serviço capaz de encurtar e atender requisições em urls encurtadas (redirecionamento).
 
+## Exemplo (Heroku)
+
+POST => https://url-shortener-sergio.herokuapp.com/api/v1/shorten
+
 ## Pré-requisitos
 
 * JDK 8
@@ -17,7 +21,7 @@ O registro é configurado para expirar `expiration.timeInMinutes` em minutos. O 
 
 ```$ mvn clean install```
 
-## Run
+## Execução
 O JAR é gerado na pasta `target` do projeto e deve ser executado com:
 
 ```$ java -jar target/url-shortener.jar --server.port=8080```
