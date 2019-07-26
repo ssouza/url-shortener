@@ -19,7 +19,7 @@ public class UrlService {
     private UrlRepository urlRepository;
 
     public Url findByShortUrl(String shortUrl) {
-        Optional<Url> optional = urlRepository.findByShortUrl(shortUrl);
+        Optional<Url> optional = urlRepository.findFirstByShortUrlOrderByExpiresAtDesc(shortUrl);
         return optional.orElse(null);
     }
 

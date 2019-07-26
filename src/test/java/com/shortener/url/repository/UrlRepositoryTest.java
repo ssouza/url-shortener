@@ -37,13 +37,13 @@ public class UrlRepositoryTest {
 
     @Test
     public void testFindByShortUrlWhenNotFound() {
-        Optional<Url> optional = urlRepository.findByShortUrl("XpTO");
+        Optional<Url> optional = urlRepository.findFirstByShortUrlOrderByExpiresAtDesc("XpTO");
         assertFalse(optional.isPresent());
     }
 
     @Test
     public void testFindByShortUrl() {
-        Optional<Url> optional = urlRepository.findByShortUrl("GoooooGlee");
+        Optional<Url> optional = urlRepository.findFirstByShortUrlOrderByExpiresAtDesc("GoooooGlee");
         assertTrue(optional.isPresent());
     }
 

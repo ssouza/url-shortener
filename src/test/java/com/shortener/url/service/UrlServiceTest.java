@@ -51,13 +51,13 @@ public class UrlServiceTest {
     @Test
     public void testFindByShortUrl() {
         Url url = new Url("www.Url.com", LocalDateTime.now());
-        when(urlRepository.findByShortUrl("XpTo")).thenReturn(Optional.of(url));
+        when(urlRepository.findFirstByShortUrlOrderByExpiresAtDesc("XpTo")).thenReturn(Optional.of(url));
         assertNotNull(urlService.findByShortUrl("XpTo"));
     }
 
     @Test
     public void testFindByShortUrlWhenNotFound() {
-        when(urlRepository.findByShortUrl("XpTo")).thenReturn(Optional.empty());
+        when(urlRepository.findFirstByShortUrlOrderByExpiresAtDesc("XpTo")).thenReturn(Optional.empty());
         assertNull(urlService.findByShortUrl("XpTo"));
     }
 

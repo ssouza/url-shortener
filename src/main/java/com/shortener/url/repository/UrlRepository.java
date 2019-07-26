@@ -8,7 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface UrlRepository extends JpaRepository<Url, Long> {
 
-    Optional<Url> findByShortUrl(String shortUrl);
+	
+    Optional<Url> findFirstByShortUrlOrderByExpiresAtDesc(String shortUrl);
 
     @Query("FROM Url WHERE shortUrl = :shortUrl AND expiresAt > current_timestamp()")
     Optional<Url> findByShortUrlAndNotExpired(@Param("shortUrl") String shortUrl);
