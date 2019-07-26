@@ -1,1 +1,1 @@
-jar: java -jar target/url-shortener.jar --server.port=$PORT
+Web: java -jar target/url-shortener.jar --server.port=$PORT
